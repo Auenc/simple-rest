@@ -1,5 +1,5 @@
 # Simple REST API
-This simple tutorail aims to teach new Go developers how to create a simple RESTful API using the service/repository pattern. Whilst the provided code will work, it's only a _very_ simple example of how to strcuture a Go RESTful API using multiple packages
+This simple tutorial aims to teach new Go developers how to create a simple RESTful API using the service/repository pattern. Whilst the provided code will work, it's only a _very_ simple example of how to structure a Go RESTful API using multiple packages
 
 ## Prerequisites
 The only prerequisite for this tutorial is to have Go installed. 
@@ -15,7 +15,7 @@ If this is your first time writing a go program - you will need to create this s
 github.com/doge/simple-rest
 ```
 ## Third party libraries
-In this tutorial we will be using [Gorilla mux](https://github.com/gorilla/mux)  for creating the indivdual routes that our API will sit behind. Whilst it's not required to create a RESTful service in Go, it does make things such as URL variables easier to access. 
+In this tutorial we will be using [Gorilla mux](https://github.com/gorilla/mux)  for creating the individual routes that our API will sit behind. Whilst it's not required to create a RESTful service in Go, it does make things such as URL variables easier to access. 
 
 To install Mux, once inside your project directory, run the following command:
 ```
@@ -37,7 +37,7 @@ The below diagram shows the project structure of the simple API we will be creat
 └── main.go
 ```
 ### endpoints
-Endpoints is a package that is responsible for talking to the outside world. In the tutorial we are creating an RESTful API. However, if in the future you would want to add gRPC or perhaps SOAP, you would be able to add the additional implentations within this package.
+Endpoints is a package that is responsible for talking to the outside world. In the tutorial we are creating an RESTful API. However, if in the future you would want to add gRPC or perhaps SOAP, you would be able to add the additional implementations within this package.
 
 ### models
 Models contains the data entities that our API will be managing. 
@@ -49,7 +49,7 @@ A repository is a layer of abstraction over the database. The idea being that we
 A service is a level of abstraction that sits in between the API's endpoints and the Repository layer. This is typically where we would implement any business logic required by our API. As this is a simple tutorial, the service itself doesn't do anything other than pass calls off the the repository. 
 
 ## Models
-The Job model is our API's representation of a Job isting. 
+The Job model is our API's representation of a Job listing. 
 ```Go
 // models/Job.go
 package models
@@ -83,7 +83,7 @@ type JobRepository interface {
 	Delete(id string) error
 }
 ```
-In Go interfaces are a little different to other likes such as Java. Rather than having to explicity state that a class implements an interface, instead, we're able to use any class that has the methods described by an interface. In the next section we will implement our in-memory repository that will not reference the `JobRepository` at all, but will have all of the methods specified by the interface. This will mean that, as far as the rest of the system is conecered, they are the same thing.
+In Go interfaces are a little different to other likes such as Java. Rather than having to explicitly state that a class implements an interface, instead, we're able to use any class that has the methods described by an interface. In the next section we will implement our in-memory repository that will not reference the `JobRepository` at all, but will have all of the methods specified by the interface. This will mean that, as far as the rest of the system is concerned, they are the same thing.
 ### InMemoryJobRepository
 Our in-memory repository is going to be way our data is stored. This is a very simple implementation (and not a very good one at that). We are just going to simply hold all of our data in an array. 
 
@@ -351,4 +351,4 @@ go build
 ```
 
 ## Conclusion
-If you've followed the tutorial correctly (and I haven't messed any of the copy&pasting up) you should now have a working Job listing API using the service/repository pattern. If something is not working for you, please feel free to download the code base on this repository to compare ny differences/try it out.
+If you've followed the tutorial correctly (and I haven't messed any of the copy&pasting up) you should now have a working Job listing API using the service/repository pattern. If something is not working for you, please feel free to download the code base on this repository to compare any differences/try it out.
